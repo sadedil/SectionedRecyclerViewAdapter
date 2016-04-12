@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <RadioGroup
+      android:minWidth="25px"
+      android:minHeight="25px"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+        
+      android:id="@+id/rgSectionGroup">
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:textSize="12sp"
+        android:text="None"
+        android:layout_weight="1"
+        android:id="@+id/rbtNoGrouping" />
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="Rank"
+        android:layout_weight="1"
+        android:id="@+id/rbtRank" />
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="Decade"
+        android:layout_weight="1"
+        android:id="@+id/rbtDecade" />
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="First letter"
+        android:layout_weight="1"
+        android:id="@+id/rbtFirstLetter" />
+  </RadioGroup>
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="5dp"
+      android:background="@color/colorAccent" />
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/rcvMovies"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+</LinearLayout>
