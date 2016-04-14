@@ -7,9 +7,9 @@ This library has only one class inherits from Android's **RecyclerView.Adapter**
 
 In this class, these original methods are hidden:
 ```C#
-public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
+override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
 
-public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
+override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
 ```
 
 Instead of overriding original **RecyclerView.Adapter** methods, you have to override these new (much simpler) methods, similar to iOS's **TableView DataSource**:
