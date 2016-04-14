@@ -10,6 +10,7 @@ namespace SectionedRecyclerViewAdapter.Demo
     public class Demo2Activity : Activity
     {
 
+        #region Activity Control & Adapter Declarations
         private RadioGroup rgSectionGroup { get; set; }
 
         private RadioButton rbtNoGrouping { get; set; }
@@ -23,6 +24,7 @@ namespace SectionedRecyclerViewAdapter.Demo
         private RecyclerView rcvMovies { get; set; }
 
         private Demo2Adapter Adapter { get; set; }
+        #endregion
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -60,6 +62,11 @@ namespace SectionedRecyclerViewAdapter.Demo
             this.ShowDialog("Selected movie info", $"Selected movie: {movieInfo.Name} ({movieInfo.Year})");
         }
 
+        /// <summary>
+        /// We want to change RecyclerView's grouping logic based on selected RadioButton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RgSectionGroup_CheckedChange(object sender, RadioGroup.CheckedChangeEventArgs e)
         {
             switch (e.CheckedId)
@@ -71,7 +78,7 @@ namespace SectionedRecyclerViewAdapter.Demo
                     this.Adapter.GroupingFunction = m => $"{m.Rank:00}";
                     break;
                 case Resource.Id.rbtDecade:
-                    this.Adapter.GroupingFunction = m => $"{m.Year / 10 * 10}'s";
+                    this.Adapter.GroupingFunction = m => $"{m.Year.GetValueOrDefault() / 10 * 10}'s";
                     break;
                 case Resource.Id.rbtFirstLetter:
                     this.Adapter.GroupingFunction = m => m.Name?.Substring(0, 1);
@@ -82,6 +89,11 @@ namespace SectionedRecyclerViewAdapter.Demo
             this.Adapter.NotifyDataSetChanged();
         }
 
+        /// <summary>
+        /// Simple helper method for showing dialog
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="message"></param>
         private void ShowDialog(string title, string message)
         {
             using (AlertDialog.Builder alert = new AlertDialog.Builder(this))

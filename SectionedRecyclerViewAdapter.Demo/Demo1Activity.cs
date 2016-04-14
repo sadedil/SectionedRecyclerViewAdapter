@@ -23,9 +23,21 @@ namespace SectionedRecyclerViewAdapter.Demo
         {
             base.OnStart();
 
+            //Let's make a Dictionary like this.
+            //
+            //| Key        | Value                                          | Year | Rank  |
+            //|----------- |----------------------------------------------- |------|------ |
+            //| old movies | The Godfather                                  | 1972 | 2     |
+            //|            | 12 Angry Man                                   | 1957 | 6     |
+            //|            | Fight Club                                     | 1979 | 10    |
+            //|            | Star Wars: Episode V - The Empire Strikes Back | 1980 | 12    |
+            //| new movies | The Shawshank Redemption                       | 1994 | 1     |
+            //|            | The Dark Knight                                | 2008 | 4     |
+            //|            | Schindler's List                               | 1993 | 5     |
+            //|            | Pulp Fiction                                   | 1994 | 7     |
             var movies = MovieInfoRepository.
                 GetMovies().
-                GroupBy(m => m.Year < 1990 ? "old movies" : "new movies").
+                GroupBy(m => !m.Year.HasValue ? "not specified" : m.Year < 1990 ? "old movies" : "new movies").
                 OrderByDescending(g => g.Key).
                 ToDictionary(g => g.Key, g => g.ToList());
 
