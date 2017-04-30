@@ -1,8 +1,8 @@
-#Sectioned Recycler View Adapter
+# Sectioned Recycler View Adapter
 
 **SectionedRecyclerViewAdapter** offers a simple way to create **RecyclerView** adapters for Xamarin Android.
 
-##Under the hood
+## Under the hood
 This library has only one class inherits from Android's **RecyclerView.Adapter**.
 
 In this class, these original methods are hidden:
@@ -37,7 +37,7 @@ virtual void OnBindSectionViewHolder(RecyclerView.ViewHolder holder, int section
 abstract T GetItem(IndexPath indexPath);
 ```
 
-##Why use this library? How it makes things easy?
+## Why use this library? How it makes things easy?
 
 Because, it addresses item positions in custom `IndexPath` structure. It's easy to know, which element is in which section?
 ```C#
@@ -49,7 +49,7 @@ class IndexPath
 }
 ```
 
-##How can i use?
+## How can i use?
 
 In the solution, you can find a demo project. It has two examples filled with comments.
 First one is a basic example with minimum requirements, other one is slightly advanced.
@@ -57,7 +57,7 @@ First one is a basic example with minimum requirements, other one is slightly ad
 I think this demo project is enough for understanding the logic of this library.
 
 
-##Any screenshots?
+## Any screenshots?
 
 *You can find demo screen recordings below*
 
